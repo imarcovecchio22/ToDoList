@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta's -->
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Links -->
+
+    <link rel="stylesheet" href="/styles/style.css" />
+
+    <!-- Title -->
+
+    <title>ToDo List</title>
+  </head>
+
+  <body>
+    <header>
+      <button class="btn dark-light-btn">
+        <!-- Dark mode and light mode button -->
+        <ion-icon
+          name="moon-outline"
+          class="dark-light-mode moon-icon"
+        ></ion-icon>
+      </button>
+    </header>
+
+    <main class="todo-main">
+      <!-- Todo's Container -->
+
+      <div class="todo-container">
+        <div class="todo-overlay">&nbsp;</div>
+        <!-- Todo's header this contains the title -->
+
+        <header class="todo-header">
+          <h1 class="todo-title">Things to do</h1>
+
+          <!-- Add/plus button and its icon -->
+
+          <button class="btn plus-icon-btn">
+            <ion-icon name="add-outline" class="plus-icon"></ion-icon>
+          </button>
+        </header>
+
+        <!-- Todo's form this pops up when user clicks plus button-->
+
+        <div class="form-container">
+          <header class="form-header">
+            <!-- Forms title -->
+
+            <h3 class="header-title">New Task</h3>
+          </header>
+
+          <!-- Todo's text input - user will type the task here -->
+          <!-- Cant put the input inside the <form> because of forms action when user press enter the website restarts -->
+
+          <div class="input-container">
+            <input
+              class="todo-input"
+              id="todo-input"
+              type="text"
+              maxlength="30"
+              autocomplete="off"
+              required
+            />
+
+            <!-- Used to make a transition when the focus the form pops up -->
+
+            <div class="todo-input-underline">&nbsp;</div>
+          </div>
+
+          <!-- Container for the 2 buttons cancel and save -->
+
+          <div class="add-container">
+            <button class="btn todo-cancel">Cancel</button>
+            <button class="btn todo-add">&nbsp; Save &nbsp;</button>
+          </div>
+        </div>
+
+        <!-- Todo's lists everytime user adds a task to do it would be created here -->
+
+        <div class="list-container">
+          <ul class="todo-lists"></ul>
+        </div>
+      </div>
+  
+    </main>
+
+    <footer class="footer-section">
+      <p class="footer-copy">
+        Copyright 2023 &copy; Ignacio Marcovecchio. All Rights Reserved
+      </p>
+    </footer>
+
+    <!-- Scripts -->
+
+    <script src="/scripts/todo.js"></script>
+
+    <!-- Ionicon's script -->
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

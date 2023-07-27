@@ -1,0 +1,343 @@
+/* Global reset to have full control of every elements margin and padding */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+/* Body */
+
+body {
+  overflow: hidden;
+  color: var(--main-color);
+  background-color: var(--main-bg-color);
+  font-family: "Rubik", sans-serif;
+}
+
+/* Global Styles */
+
+.btn {
+  color: var(--main-color);
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.btn:active {
+  transform: scale(0.9);
+}
+
+/* For Dark Mode */
+
+:root {
+  --main-color: black;
+  --main-bg-color: white;
+  --accent-color: #1971c2;
+  --green-color: #37b24d;
+  --red-color: #e03131;
+  --border-line-color: #ced4da;
+}
+
+.dark-mode-toggle {
+  --main-color: white;
+  --main-bg-color: #212529;
+  --accent-color: #339af0;
+  --green-color: #51cf66;
+  --red-color: #fa5252;
+  --border-line-color: #495057;
+}
+
+/* Dark Mode Button */
+
+.dark-light-btn {
+  transform: translate(-50%, 0);
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+}
+
+.moon-icon:hover {
+  color: #6741d9;
+}
+
+.sun-icon:hover {
+  color: #ffd43b;
+}
+
+/* Todo Main */
+
+.todo-main {
+  margin-top: 3rem;
+}
+
+.todo-container {
+  border-radius: 14px;
+  width: 480px;
+  height: 35rem;
+  padding: 2rem 3rem;
+  overflow: hidden;
+  margin: auto;
+}
+
+.todo-overlay {
+  background-color: var(--main-color);
+  display: none;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -3;
+}
+
+.todo-overlay.show-overlay {
+  opacity: 30%;
+  z-index: 3;
+}
+
+.todo-header {
+  align-items: center;
+  border-bottom: 2px solid #ced4da;
+  display: flex;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.todo-title,
+.header-title {
+  color: var(--main-color);
+}
+
+.plus-icon-btn {
+  color: var(--accent-color);
+  margin-left: auto;
+}
+
+.plus-icon,
+.dark-light-mode {
+  font-size: 1.6rem;
+}
+
+/* Todo form */
+
+.form-container {
+  background-color: var(--main-bg-color);
+  border-radius: 14px;
+  transform: translate(-50%, -50%) scale(0.7);
+  opacity: 0;
+  padding: 1rem 4rem;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  visibility: hidden;
+  z-index: 5;
+}
+
+.form-container.show-form {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 100;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.input-container {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.todo-input {
+  background-color: transparent;
+  border-bottom: 1px solid var(--main-color);
+  border: none;
+  font-family: "Rubik", sans-serif;
+  color: var(--main-color);
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+}
+
+.todo-input-underline {
+  background-color: var(--accent-color);
+  transform: translate(-50%, 0) scaleX(0);
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+}
+
+.todo-input:focus {
+  outline: none;
+}
+
+.todo-input-underline.show-underline {
+  transform: translate(-50%, 0) scaleX(1);
+}
+
+.add-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.todo-add,
+.todo-cancel {
+  background-color: var(--accent-color);
+  font-size: 1rem;
+  border-radius: 100px;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+}
+
+.todo-add:hover,
+.todo-cancel:hover {
+  background-color: #1c7ed6;
+}
+
+/* Users Todo list */
+
+.list-container {
+  height: 25rem;
+}
+
+.todo-lists {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.todo-list {
+  align-items: center;
+  color: var(--red-color);
+  display: flex;
+  list-style: none;
+  opacity: 0;
+  text-align: left;
+  justify-content: left;
+  transform: scale(0);
+}
+
+/* Shows the list */
+
+.todo-list.show {
+  transform: scale(1);
+  opacity: 100;
+}
+
+/* The border that is being animated when list button is being clicked */
+
+.list-border {
+  background-color: var(--red-color);
+  height: 100%;
+  width: 3px;
+  margin-right: 2rem;
+}
+
+.list-border.active {
+  background-color: var(--green-color);
+  transform: rotate(180deg);
+}
+
+/* The users assigned task in the list*/
+
+.todo-list-button {
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: "Rubik", sans-serif;
+  color: #555;
+  text-transform: lowercase;
+  position: relative;
+}
+
+.todo-list-button.active-btn {
+  color: var(--main-color);
+}
+
+.todo-list-button::first-letter {
+  text-transform: uppercase;
+}
+
+/* Adds animation in button hover */
+
+.todo-list-button.active-btn:hover {
+  color: var(--green-color);
+}
+
+.todo-list-button:active {
+  transform: scale(0.95);
+}
+
+/* The animated linethrough the text when the user */
+/* Clicks the task to be inactive */
+
+.todo-list-button::after {
+  content: " ";
+  background-color: var(--red-color);
+  height: 2px;
+  width: 100%;
+  transition: all 0.3s ease;
+  transform: translate(0, -50%);
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
+/* Animates the linethrough when the task is inactive */
+
+.todo-list-button.active-btn::after {
+  height: 2px;
+  width: 0%;
+}
+.trash-button {
+  margin: 0 1rem 0 auto;
+}
+
+.trash-icon:hover {
+  color: var(--red-color);
+}
+
+/* Footer section */
+
+.footer-section {
+  padding: 1rem 2rem;
+  border-top: 1px solid var(--border-line-color);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f0f0f0;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  line-height: 1.6;
+  text-align: center;
+  color: #868e96;
+  font-weight: 400;
+}
+
+/* Media queries */
+
+@media (max-width: 500px) {
+  html {
+    font-size: 80%;
+    height: 100vh;
+  }
+  .todo-container {
+    width: 100%;
+  }
+}
